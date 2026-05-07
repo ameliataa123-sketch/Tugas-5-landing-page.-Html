@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Up - Toko Sepatu Online</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+    
+        .body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg-black {
+            position: absolute;
+            top: 0; right: 0;
+            width: 40%; height: 100%;
+            background: #000;
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; }
+
+        /* Category Styling (5 items) */
+        .category-item {
+            flex: 0 0 auto;
+            width: 20%; /* Membuat 5 kolom (100% / 5) */
+        }
+        @media (max-width: 768px) {
+            .category-item { width: 50%; } /* 2 kolom di HP */
+        }
+
+        /* Image Containers */
+        .img-wrapper {
+            background-color: #f1f1f1;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .img-wrapper:hover { transform: translateY(-5px); }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1000');
+            background-size: cover;
+            background-position: center;
+            border-radius: 25px;
+            padding: 60px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-3 border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">STEP UP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#">Beranda</a></li>
+                    
+                <li class="dropdown">
+                 <button class="dropbtn" onclick="toggleDropdown()">
+                        Produk <i class="fa fa-caret-down"></i>
+      </button>
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Produk</a>
+                        <ul class="dropdown-menu border-0 shadow-sm">
+                            <li><a class="dropdown-item" href="#">Sneakers</a></li>
+                            <li><a class="dropdown-item" href="#">Running</a></li>
+                            <li><a class="dropdown-item" href="#">Casual</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#">Kategori</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#">Promo</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="#">Tentang Kami</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 fs-5">
+                    <i class="fa-solid fa-magnifying-glass cursor-pointer"></i>
+                    <i class="fa-regular fa-user cursor-pointer"></i>
+                    <div class="position-relative">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black text-white" style="font-size: 0.6rem;">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-bg-black d-none d-lg-block"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h6 class="text-uppercase fw-bold text-muted mb-3" style="letter-spacing: 2px;">Step Into Style</h6>
+                    <h1 class="display-3 fw-bold mb-4">Sepatu Keren<br>Setiap Langkah</h1>
+                    <p class="text-muted mb-5 pe-lg-5">Temukan koleksi sepatu terbaik dengan desain trendy, nyaman, dan berkualitas tinggi.</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-dark btn-lg px-4 rounded-3">Belanja Sekarang &rarr;</button>
+                        <button class="btn btn-outline-dark btn-lg px-4 rounded-3">Lihat Koleksi</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800" class="img-fluid" style="filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3));" alt="Shoe Hero">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container my-5 py-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="fw-bold">Kategori</h3>
+            <a href="#" class="text-dark fw-bold text-decoration-underline small">Lihat Semua Kategori</a>
+        </div>
+        <div class="row g-3">
+            <div class="category-item text-center">
+                <div class="img-wrapper mb-3" style="aspect-ratio: 1/1.2;"><img src="sneakers.jpg" class="w-100 h-100 object-fit-cover"></div>
+                <h6 class="fw-bold mb-0">Sneakers</h6><p class="text-muted small">120+ Produk</p>
+            </div>
+            <div class="category-item text-center">
+                <div class="img-wrapper mb-3" style="aspect-ratio: 1/1.2;"><img src="running.jpg" class="w-100 h-100 object-fit-cover"></div>
+                <h6 class="fw-bold mb-0">Running</h6><p class="text-muted small">80+ Produk</p>
+            </div>
+            <div class="category-item text-center">
+                <div class="img-wrapper mb-3" style="aspect-ratio: 1/1.2;"><img src="casual2.jpg" class="w-100 h-100 object-fit-cover"></div>
+                <h6 class="fw-bold mb-0">Casual</h6><p class="text-muted small">90+ Produk</p>
+            </div>
+            <div class="category-item text-center">
+                <div class="img-wrapper mb-3" style="aspect-ratio: 1/1.2;"><img src="basketball 2.jpg" class="w-100 h-100 object-fit-cover"></div>
+                <h6 class="fw-bold mb-0">Basketball</h6><p class="text-muted small">60+ Produk</p>
+            </div>
+            <div class="category-item text-center">
+                <div class="img-wrapper mb-3" style="aspect-ratio: 1/1.2;"><img src="boots 2.jpg" class="w-100 h-100 object-fit-cover"></div>
+                <h6 class="fw-bold mb-0">Boots</h6><p class="text-muted small">50+ Produk</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="fw-bold">Produk Terlaris</h3>
+            <a href="#" class="text-dark fw-bold text-decoration-underline small">Lihat Semua Produk</a>
+        </div>
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="border p-3 rounded-4 h-100 shadow-sm">
+                    <div class="bg-light rounded-4 p-4 text-center mb-3">
+                        <img src="sneakers.jpg" class="img-fluid" style="height: 140px; object-fit: contain;">
+                    </div>
+                    <small class="text-muted">Sneakers</small>
+                    <h6 class="fw-bold">Rp 1.299.000</h6>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="small text-warning"><i class="fa fa-star"></i> 4.8</span>
+                        <button class="btn btn-dark btn-sm rounded-circle"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="border p-3 rounded-4 h-100 shadow-sm">
+                    <div class="bg-light rounded-4 p-4 text-center mb-3">
+                        <img src="casual2.jpg" class="img-fluid" style="height: 140px; object-fit: contain;">
+                    </div>
+                    <small class="text-muted">Casual</small>
+                    <h6 class="fw-bold">Rp 899.000</h6>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="small text-warning"><i class="fa fa-star"></i> 4.7</span>
+                        <button class="btn btn-dark btn-sm rounded-circle"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="border p-3 rounded-4 h-100 shadow-sm">
+                    <div class="bg-light rounded-4 p-4 text-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=300" class="img-fluid" style="height: 140px; object-fit: contain;">
+                    </div>
+                    <small class="text-muted">Vans Old Skool</small>
+                    <h6 class="fw-bold">Rp 799.000</h6>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="small text-warning"><i class="fa fa-star"></i> 4.9</span>
+                        <button class="btn btn-dark btn-sm rounded-circle"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="border p-3 rounded-4 h-100 shadow-sm">
+                    <div class="bg-light rounded-4 p-4 text-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=300" class="img-fluid" style="height: 140px; object-fit: contain;">
+                    </div>
+                    <small class="text-muted">New Balance 530</small>
+                    <h6 class="fw-bold">Rp 1.199.000</h6>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="small text-warning"><i class="fa fa-star"></i> 4.8</span>
+                        <button class="btn btn-dark btn-sm rounded-circle"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5 py-5">
+        <div class="promo-banner text-center text-md-start">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="fw-bold text-uppercase mb-2">Promo Spesial</p>
+                    <h2 class="display-4 fw-bold mb-4">Diskon Hingga 30%</h2>
+                    <p class="mb-5">Untuk Semua Produk Pilihan</p>
+                    <button class="btn btn-light btn-lg px-5 rounded-pill fw-bold">Belanja Sekarang &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <section class="container my-5">
+        <div class="bg-light rounded-4 py-4 px-3 shadow-sm">
+            <div class="row g-4 text-center justify-content-center">
+                <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center justify-content-center gap-3">
+                        <i class="fa-solid fa-truck-fast fs-3 text-dark"></i>
+                        <div class="text-start">
+                            <p class="fw-bold mb-0 small">Gratis Ongkir</p>
+                            <p class="text-muted mb-0" style="font-size: 0.7rem;">Min. belanja 200K</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center justify-content-center gap-3">
+                        <i class="fa-solid fa-shield-halved fs-3 text-dark"></i>
+                        <div class="text-start">
+                            <p class="fw-bold mb-0 small">Pembayaran Aman</p>
+                            <p class="text-muted mb-0" style="font-size: 0.7rem;">100% Secure</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center justify-content-center gap-3">
+                        <i class="fa-solid fa-certificate fs-3 text-dark"></i>
+                        <div class="text-start">
+                            <p class="fw-bold mb-0 small">Kualitas Terjamin</p>
+                            <p class="text-muted mb-0" style="font-size: 0.7rem;">100% Original</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center justify-content-center gap-3">
+                        <i class="fa-solid fa-headset fs-3 text-dark"></i>
+                        <div class="text-start">
+                            <p class="fw-bold mb-0 small">Customer Support</p>
+                            <p class="text-muted mb-0" style="font-size: 0.7rem;">24/7 Siap Membantu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5 py-4">
+        <h3 class="text-center fw-bold mb-5">Apa Kata Mereka?</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+                    <i class="fa-solid fa-quote-left fs-2 text-light mb-3"></i>
+                    <p class="text-muted small mb-4">"Sepatunya original dan nyaman banget dipakai. Pengiriman juga cepat!"</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="MENTOR 3 .jpg" class="rounded-circle" width="45" height="45" alt="User">
+                            <div>
+                                <p class="fw-bold mb-0 small">Dika Pratama</p>
+                                <p class="text-muted mb-0" style="font-size: 0.7rem;">Jakarta</p>
+                            </div>
+                        </div>
+                        <div class="text-warning" style="font-size: 0.7rem;">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+                    <i class="fa-solid fa-quote-left fs-2 text-light mb-3"></i>
+                    <p class="text-muted small mb-4">"Desainnya keren-keren semua. Pasti belanja lagi di sini!"</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="MENTOR 1 .jpg" class="rounded-circle" width="45" height="45" alt="User">
+                            <div>
+                                <p class="fw-bold mb-0 small">Rina Oktaviani</p>
+                                <p class="text-muted mb-0" style="font-size: 0.7rem;">Bandung</p>
+                            </div>
+                        </div>
+                        <div class="text-warning" style="font-size: 0.7rem;">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+                    <i class="fa-solid fa-quote-left fs-2 text-light mb-3"></i>
+                    <p class="text-muted small mb-4">"Pelayanan ramah dan responsif. Recommended store!"</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="MENTOR 4 .jpg" class="rounded-circle" width="45" height="45" alt="User">
+                            <div>
+                                <p class="fw-bold mb-0 small">Bagas Setiawan</p>
+                                <p class="text-muted mb-0" style="font-size: 0.7rem;">Surabaya</p>
+                            </div>
+                        </div>
+                        <div class="text-warning" style="font-size: 0.7rem;">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center gap-2 mt-4">
+            <span class="rounded-circle bg-dark" style="width: 10px; height: 10px;"></span>
+            <span class="rounded-circle bg-secondary opacity-50" style="width: 10px; height: 10px;"></span>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold mb-4">STEP UP</h4>
+                    <p class="text-secondary small mb-4 pe-lg-5">Toko sepatu online terpercaya dengan koleksi lengkap, kualitas original, dan harga terbaik untuk kamu.</p>
+                    <div class="d-flex gap-3 fs-5 text-secondary">
+                        <i class="fa-brands fa-instagram cursor-pointer hover-white"></i>
+                        <i class="fa-brands fa-tiktok cursor-pointer hover-white"></i>
+                        <i class="fa-brands fa-facebook cursor-pointer hover-white"></i>
+                        <i class="fa-brands fa-youtube cursor-pointer hover-white"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-4">Navigasi</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Beranda</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Produk</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Kategori</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Promo</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Tentang Kami</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-4">Bantuan</h6>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Cara Belanja</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Pembayaran</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Pengiriman</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Return & Refund</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="fw-bold mb-4">Newsletter</h6>
+                    <p class="text-secondary small mb-3">Dapatkan info promo terbaru dari kami!</p>
+                    <div class="input-group mb-3 shadow-sm">
+                        <input type="text" class="form-control bg-dark border-0 text-white py-2" placeholder="Masukkan email kamu">
+                        <button class="btn btn-light px-3" type="button"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-secondary my-4 opacity-25">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-secondary small mb-0">&copy; 2024 Step Up Shoes Store. All rights reserved.</p>
+                <div class="d-flex gap-4 align-items-center text-secondary opacity-75">
+                    <i class="fa-brands fa-cc-visa fs-3"></i>
+                    <i class="fa-brands fa-cc-mastercard fs-3"></i>
+                    <span class="fw-bold">BCA</span>
+                    <span class="fw-bold small px-2 py-1 border border-secondary rounded">QRIS</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* CSS Tambahan agar lebih pas */
+        .bg-black { background-color: #000 !important; }
+        .hover-white:hover { color: white !important; transition: 0.3s; }
+        .rounded-4 { border-radius: 1rem !important; }
+        footer a:hover { color: white !important; transition: 0.3s; }
+    </style>
